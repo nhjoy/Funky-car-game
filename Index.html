@@ -22,9 +22,25 @@
             background: #1e272e;
             margin: auto;
             position: relative;
+            overflow: hidden;
+        }
+        .score{
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            background: green;
+            width: 300px;
+            /*height: 70px;*/
+            line-height: 70px;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            font-family: fantasy;
+            box-shadow: 0 5px 5px #777;
         }
         
-       
+
+        }
     </style>
 </head>
 <body>
@@ -48,7 +64,7 @@
 
     startScreen.addEventListener('click', start);
 
-    let player = {speed:5};
+    let player = {speed : 5, score : 0 };
 
     let keys = { ArrowUp :false, ArrowDown :false, ArrowLeft :false, ArrowRight :false};
 
@@ -87,13 +103,19 @@
             item.style.top = item.y + 'px';
         })
     }
+
+    function endGame(){
+        player.start = false;
+    }
+
     function moveEnemy(car){
         let enemy = document.querySelectorAll('.enemy');
         enemy.forEach(function(item) 
         {
             if(isCollide(car,item))
             {
-                console.log("Boom");
+                console.log("***Boom***");
+                endGame();
             }
 
             if(item.y >=750){
@@ -106,9 +128,11 @@
     }
 
     function gamePlay(){
-        console.log("Hey i am clicked.");
+        // console.log("Hey I am clicked");
         let car = document.querySelector('.car');
         let road = gameArea.getBoundingClientRect();
+        // console.log(road);
+
         if(player.start)
         {
             moveLines();
@@ -129,6 +153,10 @@
             car.style.top=player.y + 'px';
             car.style.left=player.x + 'px';
             window.requestAnimationFrame(gamePlay);
+            console.log(player.score++);
+
+            player.score++;
+            score.innerText = "SCORE : " + player.score;
         }
            
     }
@@ -138,9 +166,10 @@
         startScreen.classList.add('hide');
 
         player.start = true;
+        player.score = 0;
         window.requestAnimationFrame(gamePlay);
 
-        for(x=0;x<6;x++)
+        for(x=0; x<5; x++)
         {
             let roadLine= document.createElement('div');
             roadLine.setAttribute('class','lines');
@@ -160,7 +189,7 @@
         // console.log(car.offsetTop);
         // console.log(car.offsetLeft);
 
-        for(x=0;x<3;x++)
+        for(x=0; x<3; x++)
         {
             let enemyCar= document.createElement('div');
             enemyCar.setAttribute('class','enemy');
