@@ -12,9 +12,17 @@
             margin-left: 195px ;
         }
         .gameArea{
+            background-position: center;
             width: 400px;
             height: 100vh;
             background: #1e272e;
             margin: auto;
-            position: relative;
+            position: absolute;
+}
+
+body{
+    height: 100hv;
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 21%, rgba(253,187,45,1) 86%);
+    overflow: hidden; /* hide scrollbar*/
 }

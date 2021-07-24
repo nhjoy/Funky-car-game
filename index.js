@@ -1,48 +1,49 @@
 const score = document.querySelector('.score');
-    const startScreen = document.querySelector('.startScreen');
-    const gameArea = document.querySelector('.gameArea');
+const startScreen = document.querySelector('.startScreen');
+const gameArea = document.querySelector('.gameArea');
 
-    console.log(gameArea);
+console.log(gameArea);
 
-    startScreen.addEventListener('click', start);
+startScreen.addEventListener('click', start);
 
-    let player = {speed:5};
+let player = {speed:5};
 
-    let keys = { ArrowUp :false, ArrowDown :false, ArrowLeft :false, ArrowRight :false};
+let keys = { ArrowUp :false, ArrowDown :false, ArrowLeft :false, ArrowRight :false};
 
-    document.addEventListener('keydown', keyDown);
-    document.addEventListener('keyup', keyUp);
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
 
-    function keyDown(e){
-        e.preventDefault();
-        keys[e.key] = true;
-        //console.log(e.key);
-        console.log(keys);
-    }
-    function keyUp(e){
-        e.preventDefault();
-        keys[e.key] = false;
-        //console.log(e.key);
-        console.log(keys);
-    }
-    function isCollide(a,b){
-        aRect= a.getBoundingClientRect();
-        bRect= b.getBoundingClientRect();
-
-        return !((aRect.top > bRect.bottom) || (aRect.bottom < bRect.top) || (aRect.left > bRect.right) || (aRect.right < bRect.left))
+function keyDown(e){
+    e.preventDefault();
+    keys[e.key] = true;
+    //console.log(e.key);
+    console.log(keys);
     }
 
+function keyUp(e){
+    e.preventDefault();
+    keys[e.key] = false;
+    //console.log(e.key);
+    console.log(keys);
+}
+function isCollide(a,b){
+    aRect= a.getBoundingClientRect();
+    bRect= b.getBoundingClientRect();
+
+    return !((aRect.top > bRect.bottom) || (aRect.bottom < bRect.top) || (aRect.left > bRect.right) || (aRect.right < bRect.left))
+}
 
 
-    function moveLines(){
-        let lines = document.querySelectorAll('.lines');
-        lines.forEach(function(item) 
-        {
-            if(item.y >=750){
-                item.y -=750 
-            }
-            item.y += player.speed;
-            item.style.top = item.y + 'px';
+
+function moveLines(){
+    let lines = document.querySelectorAll('.lines');
+    lines.forEach(function(item) 
+    {
+        if(item.y >=750){
+            item.y -=750 
+        }
+        item.y += player.speed;
+        item.style.top = item.y + 'px';
         })
     }
     function moveEnemy(car){
