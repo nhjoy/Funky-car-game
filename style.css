@@ -11,12 +11,12 @@
 
         
         .car{
-                width: 50px; height : 115px; 
-                background-image: url("media/blue.png");
-                position: absolute;
-                bottom :120px;
-                background-repeat: no-repeat;
-                background-size: 100% 100%;
+            width: 50px; height : 115px; 
+            background-image: url("media/blue.png");
+            position: absolute;
+            bottom :120px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
         .enemy { 
             width: 50px; height : 115px; 
