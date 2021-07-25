@@ -12,10 +12,10 @@
             margin-left: 195px ;
         }
         .gameArea{
+            background-image: url("/media/desktop.png");
             background-position: center;
             width: 400px;
             height: 100vh;
-            background: #1e272e;
             margin: auto;
             position: absolute;
 }
