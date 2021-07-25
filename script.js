@@ -1,7 +1,8 @@
 const score = document.querySelector('.score');
     const startScreen = document.querySelector('.startScreen');
     const gameArea = document.querySelector('.gameArea');
-    var carsColor = ["url('/media/blue.png')", "url('/media/red.png')", "url('/media/black.png')", "url('/media/yellow.png')", "url('/media/purple.png')", "url('/media/white.png')"];
+    //var carsColor = ["url('media/blue.png')", "url('media/red.png')", "url('media/black.png')", "url('media/yellow.png')", "url('media/purple.png')", "url('media/white.png')"];
+    let highestScore = 0;
 
     console.log(gameArea);
 
@@ -50,6 +51,8 @@ const score = document.querySelector('.score');
     function endGame(){
         player.start = false;
         startScreen.classList.remove('hide');
+        highestScore = player.score;
+        startScreen.innerHTML = "Game Over <br> Your Final Score is " + player.score +"<br>Please Click again to restart the game."
     }
 
     function moveEnemy(car){
@@ -140,22 +143,8 @@ const score = document.querySelector('.score');
             enemyCar.setAttribute('class','enemy');
             enemyCar.y = ((x+1)*350)* -1;
             enemyCar.style.top = enemyCar.y + 'px';
-
-            enemyCar.style.backgroundImage  = carsColor((Math.floor(Math.random() * 6)));
             enemyCar.style.left = Math.floor(Math.random()*350)+ 'px';
             gameArea.appendChild(enemyCar);
         }
 
-    }
-
-    function randomIntFromInterval(min, max) { // min and max included 
-        return Math.floor(Math.random() * (max - min + 1) + min)
-      }
-
-    function randomColor(){
-        function ColorCode(){
-            let hex = math.floor(Math.random()*256).toString(16);
-            return ("0" + String(hex)).substr(-2);
-        }
-        return "#"+ColorCode()+ColorCode()+ColorCode();
     }

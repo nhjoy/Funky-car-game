@@ -10,16 +10,15 @@
         }
 
         
-        /*.car{
-                width: 40px; height : 120px; 
-                background-image:url("/media/F1_car.png");
+        .car{
+                width: 50px; height : 115px; 
                 background-image: url("/media/normal_car.png");
                 position: absolute;
                 bottom :120px;
-        } */
-        .car, .enemy { 
+        }
+        .enemy { 
             width: 50px; height : 115px; 
-            background-image: url("media/normal_car.png");
+            background-image: url("media/red.png");
             position: absolute;
             bottom :120px; 
             background-repeat: no-repeat;
